@@ -18,6 +18,7 @@
 
 ## right, so it's running now but I'd like see something
  - http://localhost:5000/
+ - now upload some files and watch the live console sensations :open_mouth:
 
 ## SFTP? Help!
  - `lftp sftp://impraise:impraise@localhost:2222/upload`
