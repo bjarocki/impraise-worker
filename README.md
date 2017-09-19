@@ -6,6 +6,10 @@
    - impraise-worker-watch - watch for close_write inotify events on a given directory and produce [disque](https://github.com/antirez/disque) jobs
    - impraise-worker-consume - wait for jobs and process files with a [justdoit](https://github.com/bjarocki/impraise-worker/blob/6ef59a0ffc4019949926a263092cd9db668fc1f6/lib/impraise/worker/consume.rb#L16-L19) method
  - I've found a very basic heroku example so please remember, alien code in `logger-console/` with [original repo in here](https://github.com/heroku-examples/ruby-websockets-chat-demo)
+ - What's missing:
+   - metrics
+   - sentry
+   - more features :blush:
 
 ## all I see is files, what now?
  - `docker-compose build`
