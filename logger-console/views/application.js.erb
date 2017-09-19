@@ -3,7 +3,7 @@ var uri      = scheme + window.document.location.host + "/";
 var ws       = new WebSocket(uri);
 ws.onmessage = function(message) {
   var data = JSON.parse(message.data);
-  $("#logger-console").prepend("<div class='item'><i class='large github middle aligned icon'></i><div class='content'><a class='header'>" + data.hostname + "</a><div class='description'>" + data.body + "</div></div></div>");
+  $("#logger-console").prepend("<div class='item'><i class='large check circle outline middle aligned icon'></i><div class='content'><a class='header'>" + data.hostname + "</a><div class='description'>" + data.body + "</div></div></div>");
   $("#logger-console").stop().animate({
     scrollTop: $('#logger-console')[0].scrollHeight
   }, 100);

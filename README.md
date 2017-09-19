@@ -8,8 +8,8 @@
  - I've found a very basic heroku example so please remember, alien code in `logger-console/` with [original repo in here](https://github.com/heroku-examples/ruby-websockets-chat-demo)
 
 ## all I see is files, what now?
- - docker-compose build
- - docker-compose up
+ - `docker-compose build`
+ - `docker-compose up`
 
 ## right, so it's running now but I'd like see something
  - http://localhost:5000/

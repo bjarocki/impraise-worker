@@ -19,8 +19,6 @@ module Impraise
       end
 
       def publish(message)
-        puts "RAW => #{message}"
-        puts sanitize(hostname: Socket.gethostname, body: message)
         @redis.publish(channel, sanitize(hostname: Socket.gethostname, body: message))
       end
 

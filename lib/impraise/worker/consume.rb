@@ -15,7 +15,7 @@ module Impraise
 
       def justdoit(path)
         s = File.stat(path)
-        @logger.publish(path: path, size: s.size, mtime: s.mtime)
+        @logger.publish(path: path, size: s.size, mtime: s.mtime, ctime: s.ctime)
       end
 
       def run
