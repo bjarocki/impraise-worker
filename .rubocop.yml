@@ -1,5 +1,9 @@
 ---
 
+AllCops:
+  Exclude:
+    - logger-console/**/*
+
 Documentation:
   Enabled: false
 
