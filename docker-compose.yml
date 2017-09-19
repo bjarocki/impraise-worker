@@ -40,5 +40,28 @@ services:
     environment:
       WATCH_DIRECTORY: /home
       DISQUE_QUEUE: 894e6396-a38a-4c63-8eac-a453376bc26e
-      DISCO_RETHINKDB: rethinkdb:28015
+      DISCO_REDIS: redis:6379
       DISCO_DISQUE: disque:7711
+
+  logger-console:
+    depends_on:
+      - redis
+    ports:
+      - "5000:5000"
+    build: logger-console
+    environment:
+      REDISCLOUD_URL: redis://redis:6379
+
+  sftp:
+    depends_on:
+      - disque
+      - redis
+      - impraise-worker-watch
+      - impraise-worker-consume
+      - logger-console
+    image: atmoz/sftp
+    volumes:
+      - /tmp/sftp/home:/home
+    ports:
+      - "2222:22"
+    command: impraise:impraise:::upload
