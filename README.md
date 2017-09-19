@@ -22,3 +22,5 @@
 
 ## SFTP? Help!
  - `lftp sftp://impraise:impraise@localhost:2222/upload`
+ - Remember that your ~/.ssh/known_hosts file may prevent you from a successful login
+   - `ssh-keygen -R [localhost]:2222` to remove the old fingerprint
