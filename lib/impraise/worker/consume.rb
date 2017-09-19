@@ -13,13 +13,9 @@ module Impraise
         @client = Disque.new("#{disque_host}:#{disque_port}", cycle: 20_000)
       end
 
-      def notify(object)
-        @rt.r.table('logs').insert(object).run
-      end
-
       def justdoit(path)
         s = File.stat(path)
-        notify(path: path, size: s.size, mtime: s.mtime)
+        @rt.notify(path: path, size: s.size, mtime: s.mtime)
       end
 
       def run

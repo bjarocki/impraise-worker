@@ -15,6 +15,10 @@ module Impraise
         'impraise'
       end
 
+      def notify(object)
+        r.table(table_name).insert(object).run
+      end
+
       # rubocop:disable Metrics/AbcSize
       def initialize
         @config = Impraise::Worker::Config.new
