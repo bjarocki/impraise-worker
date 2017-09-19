@@ -4,7 +4,8 @@
  - My initial intention was to write the whole thing in Go but I needed to drop that idea after hitting [User-space recursive watcher](https://github.com/fsnotify/fsnotify/issues/18) issue.
  - The core is a mix of two isolated services
    - impraise-worker-watch - watch for close_write inotify events on a given directory and produce [disque](https://github.com/antirez/disque) jobs
-   - impraise-worker-consume - wait for jobs and process files with a [justdoit](https://github.com/bjarocki/impraise-worker/blob/6ef59a0ffc4019949926a263092cd9db668fc1f6/lib/impraise/worker/consume.rb#L16-L19) method
+   - impraise-worker-consume - wait for jobs and process files with a [justdoit](https://github.com/bjarocki/impraise-worker/blob/ecb66699ecbf22275dccef48943c8d1591633a49/lib/impraise/worker/consume.rb#L16-L19) method
+ - Services use [DNS disco based on SRV records with a fallback to environment variables](https://github.com/bjarocki/impraise-worker/blob/ecb66699ecbf22275dccef48943c8d1591633a49/lib/impraise/worker/dns.rb#L26-L38)
  - I've found a very basic heroku example so please remember, alien code in `logger-console/` with [original repo in here](https://github.com/heroku-examples/ruby-websockets-chat-demo)
  - What's missing:
    - metrics
