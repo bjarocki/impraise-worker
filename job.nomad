@@ -9,7 +9,7 @@ job "impraise" {
     canary = 0
   }
 
-  group "rethinkdb" {
+  group "redis" {
     count = 1
     restart {
       attempts = 10
@@ -21,15 +21,13 @@ job "impraise" {
       size = 300
     }
 
-    task "rethinkdb" {
+    task "redis" {
       driver = "docker"
 
       config {
-        image = "rethinkdb"
+        image = "redis"
         port_map {
-          cluster = 29015
-          process = 28015
-          webui   = 8080
+          process = 6379
         }
       }
       resources {
@@ -37,26 +35,12 @@ job "impraise" {
         memory = 256
         network {
           mbits = 10
-          port "cluster" {}
           port "process" {}
-          port "webui" {}
         }
       }
 
       service {
-        name = "rethink-web"
-        tags = ["http-service", "http-service-public"]
-        port = "webui"
-        check {
-          name     = "alive"
-          type     = "tcp"
-          interval = "10s"
-          timeout  = "2s"
-        }
-      }
-
-      service {
-        name = "rethinkdb"
+        name = "redis"
         port = "process"
         check {
           name     = "alive"

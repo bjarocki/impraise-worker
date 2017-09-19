@@ -8,14 +8,14 @@ module Impraise
       def initialize
         @config = Impraise::Worker::Config.new
         @dns = Impraise::Worker::DNS
-        @rt = Impraise::Worker::RethinkDB.new
+        @logger = Impraise::Worker::Logger.new
         disque_host, disque_port = @dns.disco('disque')
         @client = Disque.new("#{disque_host}:#{disque_port}", cycle: 20_000)
       end
 
       def justdoit(path)
         s = File.stat(path)
-        @rt.notify(path: path, size: s.size, mtime: s.mtime)
+        @logger.publish(path: path, size: s.size, mtime: s.mtime)
       end
 
       def run

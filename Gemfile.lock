@@ -4,7 +4,7 @@ PATH
     impraise-worker (0.1.0)
       disc
       rb-inotify
-      rethinkdb
+      redis
       thor
 
 GEM
@@ -26,12 +26,12 @@ GEM
     powerpack (0.1.1)
     rainbow (2.2.2)
       rake
-    rake (10.5.0)
+    rake (12.0.0)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
     redic (1.5.0)
       hiredis
-    rethinkdb (2.3.0.2)
+    redis (4.0.0)
     rspec (3.6.0)
       rspec-core (~> 3.6.0)
       rspec-expectations (~> 3.6.0)

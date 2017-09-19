@@ -1,30 +1,24 @@
 version: '3'
 services:
 
-  rethinkdb:
-    image: rethinkdb
+  redis:
+    image: redis
     ports:
-      - "8080:8080"
+      - "6379:6379"
     expose:
-      - 28015
-
-  sftp:
-    image: atmoz/sftp
-    volumes:
-      - /tmp/sftp/home:/home
-    ports:
-      - "2222:22"
-    command: impraise:impraise:::upload
+      - 6379
 
   disque:
     image: richnorth/disque
+    ports:
+      - "7711:7711"
     expose:
       - 7711
 
   impraise-worker-watch:
     depends_on:
       - disque
-      - rethinkdb
+      - redis
     build: .
     command: watch close-write
     volumes:
@@ -32,13 +26,13 @@ services:
     environment:
       WATCH_DIRECTORY: /home
       DISQUE_QUEUE: 894e6396-a38a-4c63-8eac-a453376bc26e
-      DISCO_RETHINKDB: rethinkdb:28015
+      DISCO_REDIS: redis:6379
       DISCO_DISQUE: disque:7711
 
   impraise-worker-consume:
     depends_on:
       - disque
-      - rethinkdb
+      - redis
     build: .
     command: consume jobs
     volumes:

@@ -26,6 +26,6 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency 'disc'
   spec.add_runtime_dependency 'rb-inotify'
-  spec.add_runtime_dependency 'rethinkdb'
+  spec.add_runtime_dependency 'redis'
   spec.add_runtime_dependency 'thor'
 end
