@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="assets/css/bootstrap.css" rel="stylesheet" media="screen">
-    <link href="assets/css/application.css" rel="stylesheet" media="screen">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.css" rel="stylesheet">
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
   </head>
   <body>
-    <div class="container">
-      <div class="page-header">
-        <h1>logger console</h1>
+    <div class="ui container">
+      <div class="ui icon message">
+        <i class="notched circle loading icon"></i>
+        <div class="content">
+          <div class="header">Stay tuned</div>
+          <p>We're fetching that content for you.</p>
+        </div>
       </div>
-      <div id="logger-console">
+      <div class="ui grid">
+        <div id="logger-console" class="ui relaxed list">
+        </div>
       </div>
     </div>
 
-    <script type="text/javascript" src="assets/js/jquery-2.0.3.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.min.js"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.2.13/semantic.min.js"></script>
     <script type="text/javascript" src="assets/js/application.js"></script>
   </body>
 </html>
