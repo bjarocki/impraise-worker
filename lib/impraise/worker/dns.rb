@@ -14,13 +14,23 @@ module Impraise
         end
       end
 
+      # check for DOMAIN_DISCO env variable or fallback to service.consul
+      def self.domain_disco
+        if ENV.include? 'DOMAIN_DISCO'
+          ENV['DOMAIN_DISCO']
+        else
+          'service.consul'
+        end
+      end
+
       def self.disco(service)
         # check for disco environment as a service discovery fallback
         de = "DISCO_#{service}".upcase
         return ENV[de].split(':') if ENV.include? de
 
+        # let's give those services some time to register before we decide it's gone
         30.times do
-          host, port = srv("#{service}.service.consul").first
+          host, port = srv("#{service}.#{domain_disco}").first
           return [host, port] if host && port
           sleep(1)
         end
