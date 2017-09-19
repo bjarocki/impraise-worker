@@ -15,6 +15,10 @@ module Impraise
       end
 
       def self.disco(service)
+        # check for disco environment as a service discovery fallback
+        de = "DISCO_#{service}".upcase
+        return ENV[de].split(':') if ENV.include? de
+
         30.times do
           host, port = srv("#{service}.service.consul").first
           return [host, port] if host && port
