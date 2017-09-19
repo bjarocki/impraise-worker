@@ -15,6 +15,7 @@ module Impraise
         'impraise'
       end
 
+      # rubocop:disable Metrics/AbcSize
       def initialize
         @config = Impraise::Worker::Config.new
         @dns = Impraise::Worker::DNS
@@ -28,6 +29,7 @@ module Impraise
         r.db(db_name).table_create(table_name).run unless r.db(db_name).table_list.run.include? table_name
         @client = r.connect(host: host, port: port, db: db_name).repl
       end
+      # rubocop:enable Metrics/AbcSize
     end
   end
 end

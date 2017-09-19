@@ -1,8 +1,9 @@
 # frozen_string_literal: true
 
-require 'thor'
-require 'resolv'
-require 'json'
-require 'rb-inotify'
 require 'disc'
+require 'json'
+require 'logger'
+require 'rb-inotify'
+require 'resolv'
 require 'rethinkdb'
+require 'thor'

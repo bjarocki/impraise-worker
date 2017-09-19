@@ -2,3 +2,6 @@
 
 Documentation:
   Enabled: false
+
+Metrics/LineLength:
+  Max: 180
