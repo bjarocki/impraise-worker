@@ -1,4 +1,4 @@
-# imprase-worker
+# impraise-worker
 
 ## preface
  - My initial intention was to write the whole thing in Go but I needed to drop that idea after hitting [User-space recursive watcher](https://github.com/fsnotify/fsnotify/issues/18) issue.
