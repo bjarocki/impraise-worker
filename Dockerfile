@@ -10,7 +10,7 @@ ADD . $HOME
 
 RUN \
   gem install bundler --no-ri --no-rdoc && \
-  bundler install
+  bundle install
 
 RUN \
   apk del build-base && \
